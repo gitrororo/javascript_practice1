@@ -1,26 +1,12 @@
-const execBtn = getElementById('execBtn')
-document.execBtn.addEventListener('click', function() {
+const execBtn = document.getElementById('execBtn')
+execBtn.addEventListener('click', function() {
 
   const result = document.createElement('div');
-  const resultContents = document.getElementById('resultContents');
+  const resultContent = document.getElementById('resultContent');
   const fizzNum = document.getElementById('fizzNum');
   const buzzNum = document.getElementById('buzzNum');
   const fizzNumVal = fizzNum.value;
   const buzzNumVal = buzzNum.value;
-
-  result.id = ('result');
-  if (resultContents.hasChildNodes()) {
-      resultContents.removeChild(resultContents.firstChild);
-  }
-  resultContents.appendChild(result);
-
-  if (fizzNumVal ==="" || buzzNumVal ==="") {
-    result.textContent = ('整数値を入力してください');
-  } else if (isNaN(fizzNumVal)){
-    result.textContent = ('整数値を入力してください');
-  } else if (isNaN(buzzNumVal)){
-    result.textContent = ('整数値を入力してください');
-  } else {
   const fizzBuzz = (fizz, buzz) => {
     for (let i = 1; i < 100; i++)  {
       if (i % fizz === 0 && i % buzz === 0) {
@@ -32,7 +18,19 @@ document.execBtn.addEventListener('click', function() {
       }
     }
   };
-  
-  fizzBuzz(fizzNumVal, buzzNumVal);   
+
+  if (resultContent.hasChildNodes()) {
+      resultContent.removeChild(resultContent.firstChild);
+  }
+  resultContent.appendChild(result);
+
+  if (fizzNumVal ==='' || buzzNumVal ==='') {
+    result.textContent = ('整数値を入力してください');
+  } else if (isNaN(fizzNumVal)){
+    result.textContent = ('整数値を入力してください');
+  } else if (isNaN(buzzNumVal)){
+    result.textContent = ('整数値を入力してください');
+  } else {
+    fizzBuzz(fizzNumVal, buzzNumVal);   
     }
 })  
